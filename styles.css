@@ -1,0 +1,106 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 100%); /* Gradiente celeste para el fondo */
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.pasto {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #2e8b57; /* Color verde para el pasto */
+    border-top: 5px solid #006400; /* Borde más oscuro para el pasto */
+}
+
+.dog {
+    position: absolute;
+    bottom: 100px; /* Ajustar la altura para que el perrito esté sobre el pasto */
+    left: 50px;
+    width: 100px;
+    height: 200px;
+    background-image: url('img/xpeedy.png'); /* Imagen de perrito normal */
+    background-size: cover;
+    transform: translateY(0);
+    transition: transform 0.4s ease, bottom 0.4s ease, background-image 0.4s ease;
+}
+
+.dog.dead {
+    background-image: url('img/xpeedyMuerta.png'); /* Imagen de perrito muerto */
+    animation: dieAnimation 1s forwards; /* Aplicar animación de muerte */
+}
+
+@keyframes dieAnimation {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-100px) rotate(90deg); /* Movimiento de caída y rotación */
+    }
+    100% {
+        transform: translateY(0) rotate(90deg); /* Posición final en el suelo */
+        bottom: -50px; /* Posición en el suelo */
+        width: 300px; /* Ajustar el tamaño para que parezca más "plano" */
+        height: 350px; /* Ajustar la altura */
+    }
+}
+
+.obstacle {
+    position: absolute;
+    bottom: 100px; /* Ajustar la altura para que el obstáculo esté en la misma línea que el perrito */
+    width: 50px;
+    height: 50px;
+    background-color: #FF4500; /* Color para el obstáculo */
+    right: -50px;
+    animation: moveObstacle 2s linear infinite;
+}
+
+@keyframes moveObstacle {
+    from {
+        right: -50px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: red;
+    display: none;
+    text-align: center;
+}
+
+.boton {
+    margin-top: 20px;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.prize-message {
+    position: absolute;
+    bottom: 150px; /* Ajustar la posición para que esté sobre el pasto */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: rgb(52, 15, 70);
+    display: none;
+}
