@@ -27,8 +27,8 @@ body, html {
     position: absolute;
     bottom: 100px; /* Ajustar la altura para que el perrito esté sobre el pasto */
     left: 50px;
-    width: 100px;
-    height: 200px;
+    width: 70px;
+    height: 150px;
     background-image: url('img/xpeedy.png'); /* Imagen de perrito normal */
     background-size: cover;
     transform: translateY(0);
@@ -51,15 +51,15 @@ body, html {
         transform: translateY(0) rotate(90deg); /* Posición final en el suelo */
         bottom: -50px; /* Posición en el suelo */
         width: 300px; /* Ajustar el tamaño para que parezca más "plano" */
-        height: 350px; /* Ajustar la altura */
+        height: 200px; /* Ajustar la altura */
     }
 }
 
 .obstacle {
     position: absolute;
     bottom: 100px; /* Ajustar la altura para que el obstáculo esté en la misma línea que el perrito */
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background-color: #FF4500; /* Color para el obstáculo */
     right: -50px;
     animation: moveObstacle 2s linear infinite;
@@ -76,7 +76,7 @@ body, html {
 
 .game-over {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2em;
